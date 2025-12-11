@@ -86,19 +86,20 @@ Ce projet de **PFA (Projet de Fin d’Année)** implémente un système automati
 
 ## 📦 Diagramme Mermaid (Architecture Globale)
 
-``
-mermaid
+```
 flowchart TD
     A[Utilisateurs Linux] --> B[Script Bash + Duplicity]
     B --> C[GPG - Chiffrement]
     C --> D[Transfert Sécurisé]
     D --> E[AWS S3 Bucket]
     E -->|sessionsauvgarde/yassine| F[Yassine]
-    E -->|sessionsauvgarde/imad| G[Imad]``
+    E -->|sessionsauvgarde/imad| G[Imad]
+```
 
 ## 📁 Structure du Projet
 
-``projet-sauvegarde-cloud/
+```
+projet-sauvegarde-cloud/
 ├── README.md
 ├── Rapport_Sauvegarde_Cloud.docx
 ├── script_save_linux_sessions.sh
@@ -108,49 +109,70 @@ flowchart TD
 │   └── ...
 └── logs/
     └── backup/
-        └── duplicity_YYYY-MM-DD.log``
+        └── duplicity_YYYY-MM-DD.log
+```
         
 ## 🔧 Installation & Configuration
 # 1️⃣ Installer les dépendances
 
-``sudo apt update
+```bash
+sudo apt update
 sudo apt install -y duplicity python3-pip gnupg curl
-pip3 install boto3 awscli``
+pip3 install boto3 awscli
+```
 
 # 2️⃣ Configurer AWS
-``aws configure``
+```bash
+aws configure
+```
 
 # 3️⃣ Générer la clé GPG
-``gpg --gen-key``
+```bash
+gpg --gen-key
+```
 
 # 4️⃣ Configurer le script
-``Variables à modifier dans script_save_linux_sessions.sh :
+```text
+Variables à modifier dans script_save_linux_sessions.sh :
     - GPG_KEY
     - USERS
     - BUCKET
-    - PASS_PHRASE``
+    - PASS_PHRASE
+```
 
 # 5️⃣ Rendre le script exécutable
-``chmod +x script_save_linux_sessions.sh``
+```bash
+chmod +x script_save_linux_sessions.sh
+```
 
 # 6️⃣ Ajouter dans Cron
-``crontab -e``
-``30 2 * * 0 /path/script_save_linux_sessions.sh``
+```bash
+crontab -e
+30 2 * * 0 /path/script_save_linux_sessions.sh
+```
 
 # 📝 Utilisation
 # ▶️ Lancer une sauvegarde
-``./script_save_linux_sessions.sh``
+```bash
+./script_save_linux_sessions.sh
+```
 
 # 📄 Consulter les logs
-``tail -f /home/imad/logs/backup/duplicity_$(date +%F).log``
+```bash
+tail -f /home/imad/logs/backup/duplicity_$(date +%F).log
+```
 
 # 📦 Lister les sauvegardes
-``duplicity list-current-files boto3+s3://suvgarde-linux-session/sessionsauvgarde/name/``
+```bash
+duplicity list-current-files boto3+s3://suvgarde-linux-session/sessionsauvgarde/name/
+```
 
 # ♻️ Restaurer un fichier
-``duplicity restore --file-to-restore chemin/du/fichier \
+```bash
+duplicity restore --file-to-restore chemin/du/fichier \
   boto3+s3://suvgarde-linux-session/sessionsauvgarde/user/ \
-  /destination/``
+  /destination/
+```
   
 # 🔒 Sécurité
 # 🔐 Chiffrement
