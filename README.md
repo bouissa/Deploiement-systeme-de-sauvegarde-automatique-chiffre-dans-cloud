@@ -101,7 +101,7 @@ flowchart TD
 ```
 projet-sauvegarde-cloud/
 ├── README.md
-├── Rapport_Sauvegarde_Cloud.docx
+├── Rapport
 ├── script_save_linux_sessions.sh
 ├── media/
 │   ├── image1.png
@@ -230,6 +230,5 @@ duplicity restore --file-to-restore chemin/du/fichier \
 
 ## 📄 Licence
 
-Ce projet est réalisé dans un cadre **académique**.
-Pour une **version professionnelle** adaptée à vos besoins ou pour toute **utilisation commerciale**, veuillez me contacter.  
+Ce projet est réalisé dans un cadre **académique**.Pour une **version professionnelle** adaptée à vos besoins ou pour toute **utilisation commerciale**, veuillez me contacter.  
 Toute exploitation commerciale nécessite une **autorisation préalable**.
