@@ -86,7 +86,8 @@ Ce projet de **PFA (Projet de Fin d’Année)** implémente un système automati
 
 ## 📦 Diagramme Mermaid (Architecture Globale)
 
-``mermaid
+``
+mermaid
 flowchart TD
     A[Utilisateurs Linux] --> B[Script Bash + Duplicity]
     B --> C[GPG - Chiffrement]
@@ -136,7 +137,7 @@ pip3 install boto3 awscli``
 ``crontab -e``
 ``30 2 * * 0 /path/script_save_linux_sessions.sh``
 
-## 📝 Utilisation
+# 📝 Utilisation
 # ▶️ Lancer une sauvegarde
 ``./script_save_linux_sessions.sh``
 
@@ -151,28 +152,28 @@ pip3 install boto3 awscli``
   boto3+s3://suvgarde-linux-session/sessionsauvgarde/user/ \
   /destination/``
   
-## 🔒 Sécurité
+# 🔒 Sécurité
 # 🔐 Chiffrement
-.GPG avant envoi
-.Clés asymétriques
-.Passphrase non stockée en clair
+- GPG avant envoi
+- Clés asymétriques
+- Passphrase non stockée en clair
 
 # 🛡️ IAM
-.Utilisateur AWS dédié
-.Permissions minimales
-.Rotation périodique
+- Utilisateur AWS dédié
+- Permissions minimales
+- Rotation périodique
 
 # 🧩 Isolation
-.Sauvegardes séparées par préfixe S3
-.Logs non sensibles
+- Sauvegardes séparées par préfixe S3
+- Logs non sensibles
 
 # 📊 Monitoring & Maintenance
-.Logs dans :
+- Logs dans :
 ``/home/name/logs/backup/``
-.Test de restauration recommandé chaque semaine
-.Rotation des clés GPG/AWS chaque trimestre
+- Test de restauration recommandé chaque semaine
+- Rotation des clés GPG/AWS chaque trimestre
 
-## 🚨 Dépannage
+# 🚨 Dépannage
 
 | Problème                   | Solution                          |
 |---------------------------|------------------------------------|
@@ -182,28 +183,28 @@ pip3 install boto3 awscli``
 | Espace disque faible      | Nettoyer le cache Duplicity        |
 
 
-## 📈 Améliorations Futures
-.UI web de monitoring
-.Alertes e-mail/SMS
-.Politique de rétention automatique
-.Support multi-cloud
-.Dashboard métriques
+# 📈 Améliorations Futures
+- UI web de monitoring
+- Alertes e-mail/SMS
+- Politique de rétention automatique
+- Support multi-cloud
+- Dashboard métriques
 
-## 👥 Contribution
-1.Fork
-2.Nouvelle branche
-3.Commit
-4.Push
-5.Pull Request
+# 👥 Contribution
+1. Fork
+2. Nouvelle branche
+3. Commit
+4. Push
+5. Pull Request
 
-## 📚 Documentation Supplémentaire
-.AWS S3
-.Duplicity
-.GPG
-.IAM Best Practices
-.ISO/IEC 27001
-.RGPD
-.Règle 3-2-1
+# 📚 Documentation Supplémentaire
+- AWS S3
+- Duplicity
+- GPG
+- IAM Best Practices
+. ISO/IEC 27001
+. RGPD
+. Règle 3-2-1
 
 ## 📄 Licence
 
