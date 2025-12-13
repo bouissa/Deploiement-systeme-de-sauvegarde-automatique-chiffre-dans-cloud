@@ -1,21 +1,20 @@
-voici scripte donne moi ce que je peux dire dans video les truc a explique en brif 
 #!/bin/bash
 set -euo pipefail
 
-# Imad Variables
-GPG_KEY="8592C355197DAB597DB34860AECEF005A5FCBFE0"
-USERS=("imad" "lahcen")
-BUCKET="suvgarde-linux-session"
-PREFIX="sessionsauvgarde"
+# Variables
+GPG_KEY="Exemple8592C355197...."
+USERS=("imad" "yassine")
+BUCKET="Exemple-suvgarde-linux-session"
+PREFIX="Ex-sessionsauvgarde"
 REGION="eu-north-1"
 
 # Répertoire/fichier de log (rotation quotidienne)
-LOG_DIR="/home/imad/logs/backup"
+LOG_DIR="/home/yassine/logs/backup"
 mkdir -p "$LOG_DIR"
 LOG_FILE="$LOG_DIR/duplicity_$(date +%F).log"
 
 # Passphrase GPG (idéalement via l'environnement)
-export PASSPHRASE="ibrghoutn"
+export PASSPHRASE="Exemple"
 
 # Backend S3 moderne et région
 export DUPLICITY_S3_USE_MULTIPART=1
